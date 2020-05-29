@@ -1,0 +1,166 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #181818;
+    --primary-color: #e0e5ec;
+    --secondary-color: #ffd700;
+    --light-shadow: #525252;
+    --dark-shadow: #000000;
+    --inout-shadow: 4px 4px 8px #000000, -4px -4px 8px #525252,
+      inset -4px -4px 8px #525252, inset 4px 4px 8px #000000;
+    --inner-sahdow: -4 -4 8 #525252, 4 4 8 #000000;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #e0e5ec;
+    --primary-color: #181818;
+    --secondary-color: #cd9932;
+    --light-shadow: #ffffff;
+    --dark-shadow: #aeaeae;
+    --inout-shadow: 4px 4px 8px #aeaeae, -4px -4px 8px #ffffff,
+      inset -4px -4px 8px #ffffff, inset 4px 4px 8px #aeaeae;
+    --inner-sahdow: -4 -4 8 #ffffff, 4 4 8 #aeaeae;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg-color);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.clock {
+  margin: auto;
+  height: 50rem;
+  width: 50rem;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow),
+    inset -4px -4px 8px var(--light-shadow),
+    inset 4px 4px 8px var(--dark-shadow);
+  position: relative;
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  background: var(--bg-color);
+  box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
+  z-index: 5;
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.dial {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.dial::after {
+  content: "";
+  position: absolute;
+  height: 3rem;
+  width: 0.3rem;
+  border-radius: 5px;
+  left: 50%;
+  top: 2rem;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+}
+
+.dial1 {
+  transform: rotate(0);
+}
+
+.dial2 {
+  transform: rotate(30deg);
+}
+
+.dial3 {
+  transform: rotate(60deg);
+}
+
+.dial4 {
+  transform: rotate(90deg);
+}
+
+.dial5 {
+  transform: rotate(120deg);
+}
+
+.dial6 {
+  transform: rotate(150deg);
+}
+
+.dial7 {
+  transform: rotate(180deg);
+}
+
+.dial8 {
+  transform: rotate(210deg);
+}
+
+.dial9 {
+  transform: rotate(240deg);
+}
+
+.dial10 {
+  transform: rotate(270deg);
+}
+
+.dial11 {
+  transform: rotate(300deg);
+}
+
+.dial12 {
+  transform: rotate(330deg);
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  z-index: 2;
+  border-radius: 5px;
+  transform-origin: bottom;
+  transform: translateX(-50%);
+}
+
+.hour {
+  height: 30%;
+  width: 1rem;
+  background: var(--bg-color);
+  border: 1px solid var(--primary-color);
+}
+
+.minute {
+  height: 40%;
+  width: 0.7rem;
+  background: var(--bg-color);
+  border: 1px solid var(--primary-color);
+}
+
+.second {
+  height: 46%;
+  width: 0.2rem;
+  background: var(--secondary-color);
+}
